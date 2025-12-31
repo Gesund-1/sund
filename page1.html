@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistem Tata Surya</title>
+
+<!-- Bootstrap Icons (AMAN) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+  --bg-dark:#0f0f0f;
+  --overlay:rgba(0,0,0,.6);
+  --accent:#4fc3ff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0b1d2a;
+  color:#eaeaea;
+  line-height:1.8;
+  overflow-x:hidden;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(135deg,#0f2a44,#09121a);
+  padding:40px 20px;
+  text-align:center;
+}
+header h1{
+  margin:0;
+  font-size:2.2em;
+}
+
+/* ===== CONTENT ===== */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+h2{color:#4fc3ff;margin-top:40px}
+p{text-align:justify}
+ul{margin-left:20px}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  padding:25px;
+  background:#09121a;
+  margin-top:40px;
+  font-size:.9em;
+  opacity:.8;
+}
+
+/* ===== OVERLAY ===== */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:var(--overlay);
+  backdrop-filter:blur(6px);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:900;
+}
+#overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* ===== SIDEBAR ===== */
+#sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:220px;
+  height:100vh;
+  background:var(--bg-dark);
+  padding-top:70px;
+  transform:translateX(-100%);
+  transition:.4s cubic-bezier(.4,0,.2,1);
+  z-index:1000;
+}
+#sidebar.active{transform:translateX(0)}
+
+#sidebar ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+#sidebar a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 22px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  transition:.25s;
+}
+
+#sidebar a:hover,
+#sidebar a.active{
+  background:rgba(255,255,255,.15);
+  padding-left:32px;
+}
+
+#sidebar a.active i{
+  color:var(--accent);
+  transform:rotate(360deg) scale(1.15);
+}
+
+/* ===== ICON ===== */
+#sidebar i{
+  font-size:1.2em;
+  transition:.4s;
+}
+
+/* ===== TOGGLE ===== */
+#toggleBtn{
+  position:fixed;
+  top:16px;
+  left:16px;
+  background:none;
+  border:none;
+  color:#fff;
+  font-size:1.9em;
+  cursor:pointer;
+  z-index:1100;
+  transition:.2s;
+}
+#toggleBtn.rotate{
+  transform:rotate(90deg);
+}
+</style>
+</head>
+
+<body>
+
+<button id="toggleBtn" aria-label="Menu">
+  <i class="bi bi-list"></i>
+</button>
+
+<div id="overlay"></div>
+
+<nav id="sidebar">
+<ul>
+  <li><a href="home.html"><i class="bi bi-house"></i>Home</a></li>
+  <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+  <li><a href="page1.html"><i class="bi bi-globe"></i>Sistem Tata Surya</a></li>
+  <li><a href="page2.html"><i class="bi bi-lightbulb"></i>Cahaya</a></li>
+  <li><a href="page3.html"><i class="bi bi-battery-half"></i>Energi Potensial</a></li>
+  <li><a href="page4.html"><i class="bi bi-speedometer2"></i>Tekanan</a></li>
+</ul>
+</nav>
+
+<header>  
+  <h1>Sistem Tata Surya</h1>  
+</header>  <div class="container">  <h2>Pengertian Sistem Tata Surya</h2>  
+<p>  
+Sistem tata surya adalah kumpulan benda langit yang terikat oleh gaya gravitasi,  
+dengan Matahari sebagai pusatnya. Semua planet, satelit, asteroid, komet, dan  
+benda langit lainnya bergerak mengelilingi Matahari dalam lintasan tertentu  
+yang disebut orbit.  
+</p>  <h2>Matahari sebagai Pusat Tata Surya</h2>  
+<p>  
+Matahari merupakan bintang yang menjadi pusat dari sistem tata surya.  
+Sekitar 99,86% massa tata surya berada pada Matahari. Energi yang dihasilkan  
+oleh Matahari berasal dari reaksi fusi nuklir yang mengubah hidrogen menjadi helium.  
+</p>  
+<p>  
+Cahaya dan panas Matahari sangat penting bagi kehidupan di Bumi karena  
+menjadi sumber energi utama bagi proses biologis dan iklim.  
+</p>  <h2>Planet-Planet dalam Tata Surya</h2>  
+<p>  
+Planet adalah benda langit yang mengelilingi Matahari dan tidak memiliki  
+cahaya sendiri. Dalam sistem tata surya terdapat delapan planet yang  
+dikelompokkan menjadi dua jenis:  
+</p>  <h3>1. Planet Dalam (Terestrial)</h3>  
+<ul>  
+  <li><strong>Merkurius</strong> – Planet terdekat dari Matahari dan memiliki suhu ekstrem.</li>  
+  <li><strong>Venus</strong> – Disebut planet terpanas karena efek rumah kaca yang sangat kuat.</li>  
+  <li><strong>Bumi</strong> – Satu-satunya planet yang diketahui mendukung kehidupan.</li>  
+  <li><strong>Mars</strong> – Dijuluki planet merah dan menjadi fokus penelitian kehidupan masa lalu.</li>  
+</ul>  <h3>2. Planet Luar (Raksasa Gas dan Es)</h3>  
+<ul>  
+  <li><strong>Jupiter</strong> – Planet terbesar dengan badai raksasa bernama Bintik Merah Besar.</li>  
+  <li><strong>Saturnus</strong> – Terkenal dengan cincin indah yang mengelilinginya.</li>  
+  <li><strong>Uranus</strong> – Planet dengan kemiringan sumbu ekstrem.</li>  
+  <li><strong>Neptunus</strong> – Planet terjauh dengan angin tercepat di tata surya.</li>  
+</ul>  <h2>Satelit Alami</h2>  
+<p>  
+Satelit alami adalah benda langit yang mengorbit planet.  
+Contoh paling dikenal adalah Bulan yang mengorbit Bumi.  
+Beberapa planet memiliki banyak satelit, seperti Jupiter dan Saturnus.  
+</p>  <h2>Asteroid, Komet, dan Meteoroid</h2>  
+<p>  
+Selain planet dan satelit, tata surya juga terdiri dari benda-benda kecil:  
+</p>  
+<ul>  
+  <li><strong>Asteroid</strong> – Banyak ditemukan di sabuk asteroid antara Mars dan Jupiter.</li>  
+  <li><strong>Komet</strong> – Memiliki ekor bercahaya saat mendekati Matahari.</li>  
+  <li><strong>Meteoroid</strong> – Benda kecil yang dapat menjadi meteor atau meteorit.</li>  
+</ul>  <h2>Orbit dan Gerak Benda Langit</h2>  
+<p>  
+Semua planet bergerak mengelilingi Matahari dalam lintasan elips.  
+Selain itu, planet juga berotasi pada porosnya sendiri.  
+Gerakan ini menyebabkan terjadinya siang dan malam serta perubahan musim.  
+</p>  <h2>Pentingnya Mempelajari Tata Surya</h2>  
+<p>  
+Mempelajari tata surya membantu manusia memahami asal-usul Bumi,  
+perubahan iklim, serta kemungkinan adanya kehidupan di luar planet kita.  
+Ilmu ini juga menjadi dasar perkembangan teknologi antariksa modern.  
+</p>  <h2>Kesimpulan</h2>  
+<p>  
+Sistem tata surya adalah sistem yang kompleks dan teratur,  
+terdiri dari Matahari sebagai pusat dan berbagai benda langit yang mengitarinya.  
+Pemahaman tentang tata surya sangat penting dalam bidang sains dan teknologi  
+serta memberikan wawasan tentang posisi manusia di alam semesta.  
+</p>  </div>  <div class="footer">  
+© 2025 – Pembahasan Sistem Tata Surya  
+</div>  
+
+<script>
+const sidebar = document.getElementById("sidebar");
+const toggleBtn = document.getElementById("toggleBtn");
+const overlay = document.getElementById("overlay");
+
+/* toggle sidebar */
+function toggleMenu(){
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  toggleBtn.classList.toggle("rotate");
+}
+toggleBtn.onclick = e => {
+  e.stopPropagation();
+  toggleMenu();
+};
+overlay.onclick = toggleMenu;
+
+/* active menu otomatis */
+const currentPage = location.pathname.split("/").pop();
+document.querySelectorAll("#sidebar a").forEach(link=>{
+  if(link.getAttribute("href") === currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+
+</body>
+</html>

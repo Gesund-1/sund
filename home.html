@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web IPA</title>
+
+<!-- ICON AMAN -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+:root{
+  --bg-dark:#0f0f0f;
+  --overlay:rgba(0,0,0,.45);
+  --accent:#4fc3ff;
+}
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=60')
+    center/cover fixed no-repeat;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* overlay */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:var(--overlay);
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:900;
+}
+#overlay.active{opacity:1;pointer-events:auto}
+
+/* sidebar */
+#sidebar{
+  position:fixed;
+  top:0;left:0;
+  width:220px;height:100vh;
+  background:var(--bg-dark);
+  padding-top:70px;
+  transform:translateX(-100%);
+  transition:.4s;
+  z-index:1000;
+}
+#sidebar.active{transform:translateX(0)}
+
+#sidebar ul{list-style:none;padding:0;margin:0}
+
+#sidebar a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:18px 22px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  transition:.25s;
+}
+#sidebar a:hover,
+#sidebar a.active{
+  background:rgba(255,255,255,.15);
+  padding-left:32px;
+}
+#sidebar a.active i{
+  color:var(--accent);
+  transform:rotate(360deg) scale(1.15);
+}
+
+/* toggle */
+#toggleBtn{
+  position:fixed;
+  top:16px;left:16px;
+  background:none;border:none;
+  color:#fff;
+  font-size:1.9em;
+  cursor:pointer;
+  z-index:1100;
+}
+
+/* content */
+.content{padding:90px 20px;text-align:center}
+.footer{position:fixed;bottom:20px;width:100%;text-align:center;opacity:.7}
+</style>
+</head>
+
+<body>
+
+<button id="toggleBtn"><i class="bi bi-list"></i></button>
+<div id="overlay"></div>
+
+<nav id="sidebar">
+<ul>
+  <li><a href="home.html"><i class="bi bi-house"></i>Home</a></li>
+  <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+  <li><a href="page1.html"><i class="bi bi-globe"></i>Sistem Tata Surya</a></li>
+  <li><a href="page2.html"><i class="bi bi-lightbulb"></i>Cahaya</a></li>
+  <li><a href="page3.html"><i class="bi bi-battery-half"></i>Energi Potensial</a></li>
+  <li><a href="page4.html"><i class="bi bi-speedometer2"></i>Tekanan</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<h1><u>Mari Belajar Ilmu Pengetahuan Alam</u></h1>  
+<p>Selamat datang di halaman pembelajaran Ilmu Pengetahuan Alam. Di sini kamu bisa mempelajari berbagai topik menarik mulai dari Sistem Tata Surya, Cahaya, Energi Potensial, hingga Tekanan. Klik menu di sidebar untuk menjelajahi setiap materi.</p>    
+
+<button id="startBtn"
+style="padding:12px 25px;font-size:1.2em;border:none;border-radius:8px;
+background:#4fc3ff;color:#fff;cursor:pointer">Mulai</button>
+
+<p id="surpriseMsg" style="display:none;font-size:1.5em;color:#ffdd57"></p>
+</div>
+
+<div id="confetti-container"
+style="position:fixed;inset:0;pointer-events:none;z-index:999"></div>
+
+<div class="footer">Like • Share • Follow</div>
+
+<script>
+const sidebar=document.getElementById("sidebar");
+const toggleBtn=document.getElementById("toggleBtn");
+const overlay=document.getElementById("overlay");
+
+/* toggle */
+function toggleMenu(){
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+}
+toggleBtn.onclick=toggleMenu;
+overlay.onclick=toggleMenu;
+
+/* active menu otomatis */
+const current=location.pathname.split("/").pop();
+document.querySelectorAll("#sidebar a").forEach(a=>{
+  if(a.getAttribute("href")===current) a.classList.add("active");
+});
+
+/* confetti aman */
+function createConfetti(){
+  const c=document.getElementById("confetti-container");
+  for(let i=0;i<80;i++){
+    const d=document.createElement("div");
+    d.style.cssText=`
+      position:absolute;width:8px;height:8px;
+      background:hsl(${Math.random()*360},100%,50%);
+      left:${Math.random()*innerWidth}px;
+      top:-20px;border-radius:50%;
+      animation:fall ${2+Math.random()*3}s linear`;
+    c.appendChild(d);
+    setTimeout(()=>d.remove(),4000);
+  }
+}
+
+document.head.insertAdjacentHTML("beforeend",`
+<style>
+@keyframes fall{
+  to{transform:translateY(${innerHeight+50}px);opacity:0}
+}
+</style>`);
+
+document.getElementById("startBtn").onclick=()=>{
+  createConfetti();
+  const m=document.getElementById("surpriseMsg");
+  m.textContent="🎉 Selamat Belajar! 🎉";
+  m.style.display="block";
+  setTimeout(()=>m.style.display="none",2000);
+};
+</script>
+
+</body>
+</html>

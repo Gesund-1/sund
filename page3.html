@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energi Potensial - Pembahasan Lengkap</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+:root{
+  --bg-dark:#0f0f0f;
+  --overlay:rgba(0,0,0,.45);
+  --accent:#4fc3ff;
+}
+
+*{box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  line-height:1.6;
+  margin:0;
+  background:#fffaf0;
+  color:#333;
+  overflow-x:hidden;
+}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:56px;
+  background:#0f0f0f;
+  z-index:1050;
+}
+
+main{
+  padding:80px 20px 20px;
+}
+
+h1,h2,h3{color:#b22222}
+
+.rumus{
+  background:#f0e68c;
+  padding:10px;
+  margin:10px 0;
+  border-left:5px solid #b22222;
+}
+
+code{
+  background:#e0e0e0;
+  padding:2px 5px;
+  border-radius:4px;
+}
+
+/* OVERLAY */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:var(--overlay);
+  backdrop-filter:blur(6px);
+  opacity:0;
+  pointer-events:none;
+  transition:.35s;
+  z-index:900;
+}
+#overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* SIDEBAR */
+#sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:220px;
+  height:100vh;
+  background:var(--bg-dark);
+  padding-top:70px;
+  transform:translateX(-100%);
+  transition:.45s cubic-bezier(.4,0,.2,1);
+  z-index:1000;
+}
+#sidebar.active{transform:translateX(0)}
+
+#sidebar ul{list-style:none;padding:0;margin:0}
+
+#sidebar li{
+  padding:18px 22px;
+  display:flex;
+  align-items:center;
+  font-weight:600;
+  cursor:pointer;
+  border-bottom:1px solid rgba(255,255,255,.15);
+  transition:.25s;
+}
+
+#sidebar li:hover{
+  background:rgba(255,255,255,.15);
+  padding-left:32px;
+}
+
+#sidebar li a{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  text-decoration:none;
+  width:100%;
+}
+
+#sidebar li i{
+  font-size:1.2em;
+  transition:transform .45s,color .3s;
+}
+
+#sidebar li.active i{
+  transform:rotate(360deg) scale(1.15);
+  color:var(--accent);
+}
+
+/* ICON SPIN */
+@keyframes spin{
+  to{transform:rotate(360deg) scale(1.15)}
+}
+.spin{animation:spin .45s cubic-bezier(.4,0,.2,1)}
+
+/* TOGGLE */
+#toggleBtn{
+  position:fixed;
+  top:10px;
+  left:12px;
+  border:none;
+  background:none;
+  color:#fff;
+  font-size:2em;
+  cursor:pointer;
+  z-index:1100;
+}
+#toggleBtn.rotate{transform:rotate(90deg)}
+</style>
+</head>
+
+<body>
+
+<header>
+  <button id="toggleBtn" aria-label="Toggle menu">
+    <i class="bi bi-list"></i>
+  </button>
+</header>
+
+<div id="overlay"></div>
+
+<nav id="sidebar">
+<ul>
+  <li><a href="home.html"><i class="bi bi-house"></i>Home</a></li>
+  <li><a href="about.html"><i class="bi bi-person"></i>About</a></li>
+  <li><a href="page1.html"><i class="bi bi-globe"></i>Sistem Tata Surya</a></li>
+  <li><a href="page2.html"><i class="bi bi-lightbulb"></i>Cahaya</a></li>
+  <li><a href="page3.html"><i class="bi bi-battery-half"></i>Energi Potensial</a></li>
+  <li><a href="page4.html"><i class="bi bi-speedometer2"></i>Tekanan</a></li>
+</ul>
+</nav>
+
+<main>
+<h1>Energi Potensial</h1>  
+<p>Energi potensial adalah energi yang dimiliki oleh suatu benda karena posisinya atau keadaan tertentu. Energi ini tersimpan dalam benda dan dapat berubah menjadi bentuk energi lain, misalnya energi kinetik.</p>  <h2>1. Jenis Energi Potensial</h2>  
+<ul>  
+  <li><strong>Energi Potensial Gravitasi</strong> – energi akibat posisi benda di atas permukaan bumi.</li>  
+  <li><strong>Energi Potensial Pegas</strong> – energi yang tersimpan pada pegas yang ditekan atau ditarik.</li>  
+  <li><strong>Energi Potensial Listrik</strong> – energi akibat posisi muatan listrik dalam medan listrik.</li>  
+</ul>  <h2>2. Rumus Energi Potensial</h2>  <h3>a. Energi Potensial Gravitasi</h3>  
+<p>Energi potensial akibat gravitasi dihitung dengan rumus:</p>  
+<div class="rumus">  
+  <code>Ep = m × g × h</code>  
+</div>  
+<p>Dengan:</p>  
+<ul>  
+  <li><code>Ep</code> = energi potensial (Joule)</li>  
+  <li><code>m</code> = massa benda (kg)</li>  
+  <li><code>g</code> = percepatan gravitasi (≈ 9.8 m/s²)</li>  
+  <li><code>h</code> = tinggi benda dari permukaan referensi (m)</li>  
+</ul>  <h3>b. Energi Potensial Pegas (Hukum Hooke)</h3>  
+<p>Energi potensial yang tersimpan pada pegas dirumuskan:</p>  
+<div class="rumus">  
+  <code>Ep = 1/2 × k × x²</code>  
+</div>  
+<p>Dengan:</p>  
+<ul>  
+  <li><code>k</code> = konstanta pegas (N/m)</li>  
+  <li><code>x</code> = pertambahan panjang pegas dari posisi setimbang (m)</li>  
+</ul>  <h3>c. Energi Potensial Listrik</h3>  
+<p>Energi potensial muatan listrik dalam medan listrik:</p>  
+<div class="rumus">  
+  <code>Ep = k × (q₁ × q₂) / r</code>  
+</div>  
+<p>Dengan:</p>  
+<ul>  
+  <li><code>k</code> = konstanta Coulomb (≈ 9 × 10⁹ N·m²/C²)</li>  
+  <li><code>q₁, q₂</code> = muatan listrik (Coulomb)</li>  
+  <li><code>r</code> = jarak antar muatan (m)</li>  
+</ul>  <h2>3. Contoh Soal</h2>  
+<p><strong>Soal:</strong> Sebuah benda bermassa 2 kg berada pada ketinggian 5 m. Hitung energi potensial gravitasi benda tersebut.</p>  
+<p><strong>Jawab:</strong></p>  
+<div class="rumus">  
+  <code>Ep = m × g × h = 2 × 9.8 × 5 = 98 J</code>  
+</div>  <h2>Kesimpulan</h2>  
+<p>Energi potensial adalah energi tersimpan akibat posisi atau keadaan benda. Bentuk paling umum adalah energi potensial gravitasi, energi pegas, dan energi potensial listrik. Energi potensial dapat berubah menjadi energi kinetik atau energi lain sesuai hukum kekekalan energi.</p>  
+
+
+</main>
+
+<script>
+const sidebar=document.getElementById("sidebar");
+const toggleBtn=document.getElementById("toggleBtn");
+const overlay=document.getElementById("overlay");
+const items=document.querySelectorAll("#sidebar li");
+
+function toggle(){
+  sidebar.classList.toggle("active");
+  overlay.classList.toggle("active");
+  toggleBtn.classList.toggle("rotate");
+}
+
+toggleBtn.onclick=e=>{
+  e.stopPropagation();
+  toggle();
+};
+
+overlay.onclick=toggle;
+
+items.forEach(item=>{
+  item.addEventListener("click",()=>{
+    const icon=item.querySelector("i");
+    icon.classList.remove("spin");
+    void icon.offsetWidth;
+    icon.classList.add("spin");
+  });
+});
+</script>
+
+</body>
+</html>
